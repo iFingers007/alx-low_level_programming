@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * is_lower - For printing the lowest case characters
+ * _islower - For printing the lowest case characters
  * *@c: character for argument
  *
  * Return: 0
