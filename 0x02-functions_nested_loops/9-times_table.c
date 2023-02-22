@@ -1,4 +1,4 @@
-#iclude "main.h"
+#include "main.h"
 
 /**
  * times_table - For displaying times format
@@ -11,7 +11,7 @@ void times_table(void)
 {
 int num, mul, pro;
 
-for (num= 0; num <= 9; num++)
+for (num = 0; num <= 9; num++)
 {
 	_putchar('0');
 	for (mul = 1; mul <= 9; mul++)
@@ -30,4 +30,5 @@ for (num= 0; num <= 9; num++)
 		}
 		_putchar('\n');
 	}
+}
 }
