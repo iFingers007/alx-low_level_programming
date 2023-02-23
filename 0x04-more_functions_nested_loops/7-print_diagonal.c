@@ -1,11 +1,11 @@
 #include "main.h"
 
 /**
- * print_line - prints line
+ * print_diagonal - prints diagonal line
  * @n: parameter argument
  */
 
-void print_line(int n)
+void print_diagonal(int n)
 {
 int i = 1;
 while (i <= n)
