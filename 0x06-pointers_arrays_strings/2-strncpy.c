@@ -14,14 +14,13 @@
 char *_strncpy(char *dest, char *src, int n)
 {
 	char *ptr = dest;
-	
+
 	if (dest == NULL)
 	{
 		return (NULL);
 	}
 
 	while (*src && n--)
-
 	{
 		*dest = *src;
 		dest++;
