@@ -12,14 +12,15 @@ int main(void)
 
 	i = 0;
 	do {
-		putchar(48+i);
+		putchar(48 + i);
 		if (i < 9)
 		{
 			putchar(',');
 			putchar(' ');
 		}
+
 		i++;
-	}while (i <= 9);
+	} while (i <= 9);
 	putchar('\n');
 
 	return (0);
