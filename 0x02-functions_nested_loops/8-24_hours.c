@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- *void jack_bauer(void)
+ *jack_bauer - Prints 24hours
  *
  *
  *Return: Void
