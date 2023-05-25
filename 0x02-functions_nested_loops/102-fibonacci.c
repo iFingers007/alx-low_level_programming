@@ -10,16 +10,17 @@
 
 int main(void)
 {
-	int i, fn, sn, n;
+	int i;
+	long fn, sn, n;
 
 	fn = 1;
 	sn = 2;
 
-	printf("%d, %d, ", fn, sn);
+	printf("%ld, %ld, ", fn, sn);
 	for (i = 0; i < 48; i++)
 	{
 		n = fn + sn;
-		printf("%d, ", sn);
+		printf("%ld, ", sn);
 		fn = sn;
 		sn = n;
 	}
