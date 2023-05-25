@@ -20,7 +20,10 @@ int main(void)
 	for (i = 0; i < 49; i++)
 	{
 		n = fn + sn;
-		printf("%ld, ", sn);
+		if (i < 48)
+			printf("%ld, ", sn);
+		else
+			printf("%ld", sn);
 		fn = sn;
 		sn = n;
 	}
