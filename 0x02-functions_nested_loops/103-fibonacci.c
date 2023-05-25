@@ -17,13 +17,13 @@ int main(void)
 	sn = 2;
 	soe = 0;
 
-	for (i = 0; i <= 33; i++)
+	for (i = 0; i <= 33; ++i)
 	{
-		if (sn < 4000000 && (sn % 2 == 0))
-			soe += sn;
-		n = fn + sn;
-		sn = fn;
-		fn = n;
+		if (fn < 4000000 && (fn % 2) == 0)
+			soe += fn;
+		n = sn + fn;
+		fn = sn;
+		sn = n;
 	}
 	printf("%lu\n", soe);
 
