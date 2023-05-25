@@ -2,7 +2,7 @@
 
 /**
  *print_square - Prints square in terminal
- *@n: Number of times character appears
+ *@size: Size of square
  *
  *Return: void
 */
