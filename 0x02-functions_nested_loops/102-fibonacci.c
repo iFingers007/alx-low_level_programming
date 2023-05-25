@@ -17,7 +17,7 @@ int main(void)
 	sn = 2;
 
 	printf("%ld, %ld, ", fn, sn);
-	for (i = 0; i < 48; i++)
+	for (i = 0; i < 49; i++)
 	{
 		n = fn + sn;
 		printf("%ld, ", sn);
