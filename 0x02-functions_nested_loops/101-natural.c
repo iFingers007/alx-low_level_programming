@@ -8,18 +8,14 @@
  *Return: Always Zero at success
 */
 
-int main (void)
+int main(void)
 {
 	int i, r;
 
-	for (i =1; i < 1024; i++)
-	{
+	for (i = 1; i < 1024; i++)
 		if ((i % 3 == 0) || (i % 5 == 0))
-	{
-		r += i;
-	}
-	}
-	printf("Sum is : %d\n", r);
+			r += i;
+	printf("%d\n", r);
 
 	return (0);
 }
