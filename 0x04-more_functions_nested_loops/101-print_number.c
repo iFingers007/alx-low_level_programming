@@ -9,16 +9,17 @@
 void print_number(int n)
 {
 	unsigned int i, j, count;
+
 	if (n < 0)
 	{
 		_putchar(45);
-		i = n * - 1;
+		i = n * -1;
 	}
 	else
 		i = n;
 	j = i;
 	count = 1;
-	while(j > 9)
+	while (j > 9)
 	{
 		j /= 10;
 		count *= 10;
