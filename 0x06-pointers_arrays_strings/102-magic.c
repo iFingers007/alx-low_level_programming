@@ -1,12 +1,4 @@
-#include "main.h"
-
-/**
- *main - Ebtry to program
- *
- *
- *Return: Zero on succcess
-*/
-
+#include <stdio.h>
 
 int main(void)
 {
