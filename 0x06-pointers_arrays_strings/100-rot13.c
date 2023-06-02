@@ -10,8 +10,8 @@
 char *rot13(char *s)
 {
 	int count = 0, i;
-	char alpha[] = "a-z, A-Z";
-	char rot13[] = "n-m, N-M";
+	char alpha[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	char rot13[] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
 
 	while (*(s + count) != '\0')
 	{
