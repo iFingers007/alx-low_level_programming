@@ -6,7 +6,7 @@
  *@src: Pointer to source memory block
  *@n: Bytes to be copied
  *
- *Return:
+ *Return: Pointer to destination
 */
 
 char *_memcpy(char *dest, char *src, unsigned int n)
