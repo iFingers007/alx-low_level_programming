@@ -9,7 +9,7 @@
  *Return: Always zero on success
 */
 
-int main(int argc, char* argv[])
+int main(int argc, char *argv[])
 {
 	int i, mul = 1;
 
