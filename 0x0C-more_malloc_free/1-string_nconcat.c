@@ -45,10 +45,12 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	res = malloc((conl + 1) * sizeof(char));
 	if (res == NULL)
 		return (NULL);
-	for (p = res; *s1 != '\0'; s1++)
+	p = res;
+	while (*s1 != '\0')
 	{
 		*p = *s1;
 		p++;
+		s1++;
 	}
 	while (n > 0)
 	{
@@ -57,5 +59,6 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		s2++;
 		n--;
 	}
+	*p = '\0';
 	return (res);
 }
