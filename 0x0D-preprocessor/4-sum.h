@@ -1,6 +1,6 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-#define ABS(x) ((-)*(x))
+#define SUM(x, y) ((x) + (y))
 
 #endif
