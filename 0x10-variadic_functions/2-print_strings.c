@@ -23,6 +23,8 @@ void print_strings(const char *separator, const unsigned int n, ...)
 		p = va_arg(s_list, char *);
 		if (p != NULL)
 			printf("%s", p);
+		else
+			printf("(nil)");
 		if (i < n && separator != NULL)
 			printf("%s", separator);
 	}
