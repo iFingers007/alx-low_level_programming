@@ -79,7 +79,7 @@ void print_string(va_list arg)
  */
 void print_all(const char * const format, ...)
 {
-	va_list args;
+	va_list arg;
 	int i = 0, j = 0;
 	char *separator = "";
 	print_t funcs[] = {
@@ -89,7 +89,7 @@ void print_all(const char * const format, ...)
 		{"s", print_string}
 	};
 
-	va_start(args, format);
+	va_start(arg, format);
 
 	while (format && (*(format + i)))
 	{
@@ -101,7 +101,7 @@ void print_all(const char * const format, ...)
 		if (j < 4)
 		{
 			printf("%s", separator);
-			funcs[j].func(args);
+			funcs[j].func(arg);
 			separator = ", ";
 		}
 
@@ -110,5 +110,5 @@ void print_all(const char * const format, ...)
 
 	printf("\n");
 
-	va_end(args);
+	va_end(arg);
 }
