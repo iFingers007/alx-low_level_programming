@@ -7,4 +7,15 @@ void print_numbers(const char *separator, const unsigned int n, ...);
 void print_strings(const char *separator, const unsigned int n, ...);
 void print_all(const char * const format, ...);
 
-#endif
+/**
+ * struct print - Defines printing behaviour
+ *@sign: For indicating data type of argument
+ *@func: Correspoding print function
+ */
+typedef struct print
+{
+	char *sign;
+	void (*func)(va_list args);
+} print_t;
+
+#endif /* VARIADIC_FUNCTIONS_H */
