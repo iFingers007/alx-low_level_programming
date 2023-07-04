@@ -1,12 +1,12 @@
 #include <stdio.h>
 
 /**
- *premain - To be executed before the main function
- *
- *Return: void
-*/
+ * premain - Prints before the
+ *        main is executed.
+ */
 
-__attribute__ ((__constructor__)) void premain(void)
+void __attribute__((__constructor__)) premain(void)
 {
-	printf("You're beat! and yet, you must allow,\nI bore my house upon my back!\n");
+	printf("You're beat! and yet, you must allow,\n"
+	       "I bore my house upon my back!\n");
 }
