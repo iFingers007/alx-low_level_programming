@@ -6,7 +6,7 @@
 /**
  *insert_nodeint_at_index - Adds a node at the index of a list
  *@head: Head of list argument
- *@idx: Index of list, begining from )
+ *@idx: Lit index starting from 0
  *@n: Value to be added
  *
  *Return: Addess to added node or NULL if it failed
@@ -21,18 +21,18 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	if (newnode != NULL)
 	{
 		newnode->n = n;
-		/* newnode->next = NULL; */
 		if (*head == NULL)
 		{
 			*head = newnode;
 			return (newnode);
 		}
-		else
-			return (NULL);
 		temp = *head;
-		for (i = 0; i < (idx - 1); i++)
-			temp = temp->next;
-
+		if (temp->next == NULL)
+			return (NULL);
+		for (i =0; i < (idx - 1); i++)
+		{
+		    temp = temp->next;
+		}
 		newnode->next = temp->next;
 		temp->next = newnode;
 		return (newnode);
