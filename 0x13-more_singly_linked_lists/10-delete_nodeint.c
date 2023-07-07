@@ -4,7 +4,7 @@
 #include <stdlib.h>
 
 /**
- *delete_nodeint_at_index Deletes node at index of a linked list
+ *delete_nodeint_at_index - Deletes node at index of a linked list
  *@head: Head of linked list
  *@index: Index where delete is to take place starting with 0
  *
