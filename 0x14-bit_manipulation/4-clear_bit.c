@@ -4,7 +4,7 @@
 #include <stdlib.h>
 
 /**
- *set_bit - For Setting the bit at a particular position to 1
+ *clear_bit - For setting the bit at a particular position to 0
  *@n: Pointer to address where n is
  *@index: Index starting from 0
  *
