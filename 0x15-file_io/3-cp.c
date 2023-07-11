@@ -16,7 +16,7 @@
 int main(int argc, char *argv[])
 {
 	int ff, ft, cff, cft;
-	char buffer[1024];
+	char *buffer;
 	int bw, br;
 
 	if (argc != 3)
@@ -24,6 +24,9 @@ int main(int argc, char *argv[])
 		dprintf(2, "Usage: %s file_from file_to\n", argv[0]);
 		exit(97);
 	}
+	buffer = malloc(sizeof(char) * 1024);
+	if (buffer == NULL)
+		exit(97);
 	ft = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0004 | 0400 | 0200 | 0040 | 0020);
 	ff = open(argv[1], O_RDWR);
 	br = read(ff, &buffer, 1024);
@@ -38,6 +41,7 @@ int main(int argc, char *argv[])
 		dprintf(2, "Error: Can't write to %s\n", argv[2]);
 		exit(99);
 	}
+
 	cff = close(ff);
 	if (cff == -1)
 	{
