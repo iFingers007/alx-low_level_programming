@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
 	ft = open(file_to, O_RDWR | O_CREAT | O_TRUNC, 00664);
 	ff = open(file_from, O_RDWR);
 	br = read(ff, &buffer, 1024);
-	if (ff == -1)
+	if (ff == -1 || br == 0)
 	{
 		dprintf(2, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
