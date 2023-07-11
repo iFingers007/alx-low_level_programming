@@ -7,33 +7,50 @@
 #include <sys/types.h>
 
 /**
- *append_text_to_file - Appends text to a file
- *@filename: Name of file to be read
- *@text_content: Null terminated string to be written to the file
+ *main - Entry to program
+ *@:
  *
- *Return: 1 on success, or -1 if error occurs
+ *Return: 0 on success
 */
 
-int append_text_to_file(const char *filename, char *text_content)
+int main(int argc, char *argv[])
 {
-	int fl, bw, len;
+	int ff, ft, cff, cft;
+	char buffer[1024];
+	char *file_from = argv[1];
+	char *file_to = argv[2];
+	size_t bw, br;
 
-	if (filename == NULL)
-		return (-1);
-	fl = open(filename, O_WRONLY | O_CREAT | O_TRUNC, 0600);
-	if (fl == -1)
-		return (-1);
-	if (text_content != NULL)
+	if (argc != 3)
 	{
-		for (len = 0; text_content[len] != '\0'; len++)
-			;
-		bw = write(fl, text_content, len);
-		if (bw == -1)
-		{
-			close(fl);
-			return (-1);
-		}
+		dprintf(2, "Usage: %s file_from file_to\n", argv[0]);
+		exit(97);
 	}
-	close(fl);
-	return (1);
+	ft = open(file_to, O_RDWR | O_CREAT | O_TRUNC, 00664);
+	ff = open(file_from, O_RDWR);
+	br = read(ff, &buffer, 1024);
+	if (ff == -1)
+	{
+		dprintf(2, "Error: Can't read from file %s\n", argv[1]);
+		exit(98);
+	}
+	bw = write(ft, &buffer, br);
+	if (bw == 0 || ft == -1)
+	{
+		dprintf(2, "Error: Can't write to %s\n", argv[2]);
+		exit(99);
+	}
+	cff = close(ff);
+	if (cff == -1)
+	{
+		dprintf(2, "Error: Can't close fd %d\n", ff);
+		exit(100);
+	}
+	cft = close(ft);
+	if (cft == -1)
+	{
+		dprintf(2, "Error: Can't close fd %d\n", ft);
+		exit(100);
+	}
+	return (0);
 }
