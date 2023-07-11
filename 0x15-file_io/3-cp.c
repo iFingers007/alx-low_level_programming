@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
 		dprintf(2, "Usage: %s file_from file_to\n", argv[0]);
 		exit(97);
 	}
-	ft = open(argv[2], O_RDWR | O_CREAT | O_TRUNC, 0664);
+	ft = open(argv[2], O_RDWR | O_CREAT | O_TRUNC, S_IROTH | 0400 | 0200 | 0040 | 0020);
 	ff = open(argv[1], O_RDWR);
 	br = read(ff, &buffer, 1024);
 	if (ff == -1 || br == -1)
