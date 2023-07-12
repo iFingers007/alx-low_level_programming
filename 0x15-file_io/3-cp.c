@@ -29,7 +29,7 @@ void perror_exit(char *msg, int exn, ...)
 			dprintf(STDERR_FILENO, "%s ", value);
 			i++;
 		}
-		dprintf(STDERR_FILENO, "%s\n", msg);
+		dprintf(STDERR_FILENO, "%c\n", msg[i++]);
 		exit(exn);
 	}
 	va_end(list);
