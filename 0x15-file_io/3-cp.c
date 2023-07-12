@@ -6,6 +6,8 @@
 #include <fcntl.h>
 #include <sys/types.h>
 #include <stdarg.h>
+#include <errno.h>
+
 /**
  *perror_exit - For printing the error messages and exit
  *@msg: Error message to be printed
