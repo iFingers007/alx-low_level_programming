@@ -16,7 +16,7 @@
  *
  *Return: 0 on success
 */
-int main(int argc, char *argv[])
+int main(int argc, char **argv)
 {
 	int ff, ft, br, bw, cf;
 	char buf[1024];
@@ -39,8 +39,7 @@ int main(int argc, char *argv[])
 			bw = write(ft, buf, br);
 			if (bw == -1)
 				dprintf(STDERR_FILENO, WRITE_ERR, argv[2]), exit(99);
-		}
-		else
+		} else
 			break;
 	}
 	cf = close(ff);
