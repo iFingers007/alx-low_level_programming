@@ -42,12 +42,14 @@ int _cp(char *src, char *dst)
 	if (ff == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", src);
+		close(ff);
 		return (98);
 	}
 	ft = open(dst, O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	if (ft == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", dst);
+		close(ft);
 		return (99);
 	}
 	while ((br = read(ff, &buffer, 1024)) > 0)
@@ -56,12 +58,16 @@ int _cp(char *src, char *dst)
 		if (bw == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", dst);
+			close(ff);
+			close(ft);
 			return (99);
 		}
 	}
 	if (br == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", src);
+		close(ff);
+		close(ft);
 		return (98);
 	}
 	_close(ff);
@@ -82,7 +88,7 @@ int main(int argc, char *argv[])
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to");
 		return (97);
 	}
-	_cp(argv[1], argv[2]);
-
+	if (_cp(argv[1], argv[2]) != 0)
+		return (1);
 	return (0);
 }
