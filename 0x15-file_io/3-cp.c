@@ -8,10 +8,10 @@
 #define WRITE_ERR "Error: Can't write to %s\n"
 
 /**
- * main - check the code for Holberton School students.
+ * main - Entry into the program
  * @argc: num of args
  * @argv: args
- * Return: Always 0.
+ * Return: Always 0 on success.
  */
 int main(int argc, char **argv)
 {
