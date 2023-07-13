@@ -16,6 +16,7 @@
 int _close(int _file)
 {
 	int c;
+
 	c = close(_file);
 	if (c == -1)
 	{
