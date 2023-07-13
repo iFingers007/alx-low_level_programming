@@ -6,74 +6,9 @@
 #include <sys/types.h>
 #include <errno.h>
 
-/**
- *_close - Closes a file
- *@_file: file to be closed
- *
- *Return: 0 on success
-*/
+#define READ_ERR "Error: Can't read from file %s\n"
+#define WRITE_ERR "Error: Can't write to %s\n"
 
-int _close(int _file)
-{
-	int c;
-
-	c = close(_file);
-	if (c == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", _file);
-		return (100);
-	}
-	return (0);
-}
-
-/**
- *_cp - Copies a file
- *@src: File to copy from
- *@dst: File to copy to
- *
- *Return: 0 on success
-*/
-int _cp(char *src, char *dst)
-{
-	int ff, ft, br, bw;
-	char buffer[1024];
-
-	ff = open(src, O_RDONLY);
-	if (ff == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", src);
-		_close(ff);
-		return (98);
-	}
-	ft = open(dst, O_WRONLY | O_CREAT | O_TRUNC, 0664);
-	if (ft == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", dst);
-		_close(ft);
-		return (99);
-	}
-	while ((br = read(ff, &buffer, 1024)) > 0)
-	{
-		bw = write(ft, &buffer, br);
-		if (bw == -1)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", dst);
-			_close(ff);
-			_close(ft);
-			return (99);
-		}
-	}
-	if (br == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", src);
-		_close(ff);
-		_close(ft);
-		return (98);
-	}
-	_close(ff);
-	_close(ft);
-	return (0);
-}
 /**
  *main - Entry to program
  *@argc: Argument count
@@ -83,12 +18,36 @@ int _cp(char *src, char *dst)
 */
 int main(int argc, char *argv[])
 {
+	int ff, ft, br, bw, cf;
+	char buf[1024];
+
 	if (argc != 3)
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to"), exit(97);
+	ft = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
+	if (ft == -1)
+		dprintf(STDERR_FILENO, WRITE_ERR, argv[2]), exit(99);
+	ff = open(argv[1], O_RDONLY);
+	if (ff == -1)
+		dprintf(STDERR_FILENO, READ_ERR, argv[1]), exit(98);
+	while (1)
 	{
-		dprintf(STDERR_FILENO, "Usage: cp file_from file_to");
-		return (97);
+		br = read(ff, buf, 1024);
+		if (br == -1)
+			dprintf(STDERR_FILENO, READ_ERR, argv[1]), exit(98);
+		if (br > 0)
+		{
+			bw = write(ft, buf, br);
+			if (bw == -1)
+				dprintf(STDERR_FILENO, WRITE_ERR, argv[2]), exit(99);
+		}
+		else
+			break;
 	}
-	if (_cp(argv[1], argv[2]) != 0)
-		return (1);
+	cf = close(ff);
+	if (cf == -1)
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", ff), exit(100);
+	cf = close(ft);
+	if (cf == -1)
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", ft), exit(100);
 	return (0);
 }
