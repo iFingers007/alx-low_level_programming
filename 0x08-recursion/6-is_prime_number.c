@@ -1,7 +1,8 @@
 #include "main.h"
 
 /**
- *is_prime_number - Check if a number is prime
+ *chck_prime - Check if a number is prime
+ *@i: Base prime
  *@n: Number to be checked
  *
  *Return: 1 if its prime or zero otherwise
