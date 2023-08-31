@@ -29,7 +29,9 @@ int chck_palindrome(char *s, int fn, int ln)
 		return (1);
 	if (s[fn] != s[ln])
 		return (0);
-	return (chck_palindrome(s, s[fn + 1], s[ln - 1]));
+	if (fn < (ln +1))
+		return (chck_palindrome(s, s[fn + 1], s[ln - 1]));
+	return (1);
 }
 
 /**
