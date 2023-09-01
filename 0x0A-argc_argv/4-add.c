@@ -11,7 +11,7 @@
 
 int chck_dig(char *s)
 {
-	while(*s)
+	while (*s)
 	{
 		if (*s < '0' || *s > '9')
 			return (0);
