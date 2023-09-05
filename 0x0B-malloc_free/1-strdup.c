@@ -26,7 +26,7 @@ int _strlen(char *str)
  * _strdup - Duplicates a string
  *@str: String to be duplicated
  *
- *Return:
+ *Return: Pointer t duplicated string or NULL if it fails
  */
 
 char *_strdup(char *str)
