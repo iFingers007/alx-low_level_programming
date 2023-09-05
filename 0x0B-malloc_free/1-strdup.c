@@ -14,7 +14,7 @@ int _strlen(char *str)
 
 	if (str == NULL)
 		return (0);
-	while(*str != '\0')
+	while (*str != '\0')
 	{
 		l++;
 		str++;
