@@ -1,10 +1,10 @@
 #include "main.h"
 
 /**
- *  -
- *@:
- *
- *Return:
+ * free_grid - Frees allocated memory
+ *@grid: Grid to be freed
+ *@height: Height to be freed
+ *Return: Void
  */
 
 void free_grid(int **grid, int height)
