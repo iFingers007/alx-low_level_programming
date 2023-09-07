@@ -11,7 +11,7 @@ int main(void)
 {
 	char *concat, *s1null, *s2null, *both_null;
 
-    concat = string_nconcat("Best ", "School !!!", 13);
+    concat = string_nconcat("Best ", "School !!!", 6);
     s1null = string_nconcat(NULL, "School !!!", 6);
     s2null = string_nconcat("Best", NULL, 6);
     both_null = string_nconcat(NULL, NULL, 6);
