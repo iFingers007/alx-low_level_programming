@@ -10,11 +10,11 @@ int *array_range(int min, int max)
 {
 	unsigned int *p, i, nmin, nmax;
 
-	nmin = (unsigned)min;
-	nmax = (unsigned)max;
+	nmin = (unsigned int)min;
+	nmax = (unsigned int)max;
 	if (min > max)
 		return (NULL);
-	p =(unsigned int *)malloc(max * sizeof(int));
+	p = malloc(max * sizeof(int));
 	if (p == NULL)
 		return (NULL);
 	for (i = nmin; i <= nmax; i++)
