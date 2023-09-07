@@ -27,9 +27,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		if (s2[j] != '\0')
 			p[i] = s2[j];
 		else
-		{
-			;
-		}
+			break;
 	}
 	p[i] = '\0';
 	return (p);
