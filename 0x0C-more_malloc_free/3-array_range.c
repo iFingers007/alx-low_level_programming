@@ -8,14 +8,16 @@
  */
 int *array_range(int min, int max)
 {
-	int *p, i;
+	unsigned int *p, i, nmin, nmax;
 
+	nmin = (unsigned)min;
+	nmax = (unsigned)max;
 	if (min > max)
 		return (NULL);
-	p = malloc(max * sizeof(int));
+	p =(unsigned int *)malloc(max * sizeof(int));
 	if (p == NULL)
 		return (NULL);
-	for (i = min; i <= max; i++)
+	for (i = nmin; i <= nmax; i++)
 		p[i] = i;
-	return (p);
+	return ((int *)p);
 }
