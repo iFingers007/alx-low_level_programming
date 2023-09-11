@@ -11,7 +11,7 @@ int slen(char *s)
 {
 	int len = 0;
 
-	if (s == NULL || *s == "")
+	if (s == NULL)
 		return (0);
 	while (*s != '\0')
 	{
