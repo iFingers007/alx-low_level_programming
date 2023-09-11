@@ -1,6 +1,67 @@
 #include "dog.h"
 
 /**
+ * strdp - Duplicates string
+ *@s: String to be copied
+ *
+ *Return: Duplicated string
+ */
+
+int slen(char *s)
+{
+	int len = 0;
+
+	if (s == NULL)
+		return (0);
+	while (*s != '\0')
+	{
+		len++;
+		s++;
+	}
+	return (len);
+}
+
+/**
+ * strcp - Copies string
+ *@dst: Destination string
+ *@src: String to be copied
+ *
+ *Return: Copied string
+ */
+
+char *strcp(char *dst, char *src)
+{
+	char *cp = dst;
+
+	while (*src != '\0')
+	{
+		*dst = *src;
+		dst++;
+		src++;
+	}
+	dst = '\0';
+	return (cp);
+}
+/**
+ * strdp - Duplicates string
+ *@s: String to be copied
+ *
+ *Return: Duplicated string
+ */
+
+char *strdp(char *s)
+{
+	char *dp;
+
+	if (s == NULL)
+		return (NULL);
+	dp = malloc(slen(s) + 1);
+	if (dp == NULL)
+		return (NULL);
+	strcp(dp, s);
+	return(dp);
+}
+/**
  * new_dog - It creates a new dog
  *@name: Name of new dog
  *@age: Age of new dog
@@ -15,8 +76,9 @@ dog_t *new_dog(char *name, float age, char *owner)
 	p = malloc(sizeof(dog_t));
 	if (p == NULL)
 		return (NULL);
-	p->name = name;
+	p->name = strdp(name);
 	p->age = age;
-	p->owner = owner;
+	p->owner = strdp(owner);
 	return (p);
 }
+
