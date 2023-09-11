@@ -39,7 +39,7 @@ char *strcp(char *dst, char *src)
 		dst++;
 		src++;
 	}
-	dst = '\0';
+	*dst = '\0';
 	return (cp);
 }
 /**
