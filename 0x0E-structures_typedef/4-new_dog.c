@@ -1,17 +1,17 @@
 #include "dog.h"
 
 /**
- * strdp - Duplicates string
+ * slen - Gets let of string
  *@s: String to be copied
  *
- *Return: Duplicated string
+ *Return: Length of string
  */
 
 int slen(char *s)
 {
 	int len = 0;
 
-	if (s == NULL)
+	if (s == NULL || *s == "")
 		return (0);
 	while (*s != '\0')
 	{
@@ -59,7 +59,7 @@ char *strdp(char *s)
 	if (dp == NULL)
 		return (NULL);
 	strcp(dp, s);
-	return(dp);
+	return (dp);
 }
 /**
  * new_dog - It creates a new dog
@@ -84,6 +84,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 		free(p->name);
 		free(p->owner);
 		free(p);
+		return (NULL);
 	}
 	return (p);
 }
