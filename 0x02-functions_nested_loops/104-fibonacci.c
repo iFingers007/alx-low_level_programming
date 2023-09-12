@@ -12,12 +12,13 @@ int main(void)
 {
 	unsigned long fn = 1, sn = 2, temp = 0, i = 2;
 
-	printf("%lu, %lu", fn, sn);
-	for (; i < 98; i++)
+	printf("%lu, %lu ", fn, sn);
+	while (i < 98)
 	{
 		temp = fn + sn;
 		fn = sn;
 		sn = temp;
+		i++;
 		printf("%lu", sn);
 		if (i < 98)
 			printf(", ");
