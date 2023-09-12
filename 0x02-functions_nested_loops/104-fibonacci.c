@@ -13,7 +13,7 @@ int main(void)
 	unsigned long fn = 1, sn = 2, temp = 0, i = 2;
 
 	printf("%lu, %lu, ", fn, sn);
-	while (i < 98)
+	while (i <= 98)
 	{
 		temp = fn + sn;
 		fn = sn;
