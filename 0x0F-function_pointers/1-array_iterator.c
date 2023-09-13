@@ -4,7 +4,7 @@
  * array_iterator - Array iterator
  *@array: Array to iterate
  *@size: Size of the array
- *@acion: Function pointer to action function
+ *@action: Function pointer to action function
  *
  *Return:
  */
