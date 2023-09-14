@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 /**
- * print_number - Prints a variadic list with a separator
+ * print_numbers - Prints a variadic list with a separator
  *@separator: String to use in separating numbers
  *@n: Number of arguments
  *Return: Void
