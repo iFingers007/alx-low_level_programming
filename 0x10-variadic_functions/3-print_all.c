@@ -89,7 +89,8 @@ void print_all(const char * const format, ...)
 		{
 			printf("%s", s);
 			fp[j].f(l);
-			printf(", ");
+			if (j < 3)
+				printf(", ");
 		}
 		i++;
 	}
