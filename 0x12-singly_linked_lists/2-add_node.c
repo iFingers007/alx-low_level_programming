@@ -12,6 +12,8 @@ unsigned int len_node(char *str)
 {
 	unsigned int i = 0, len = 0;
 
+	if (str == NULL)
+		return (0);
 	while (str[i] != '\0')
 	{
 		len++;
