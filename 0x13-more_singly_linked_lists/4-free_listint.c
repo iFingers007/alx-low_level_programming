@@ -2,21 +2,20 @@
 #include <stdio.h>
 
 /**
- * free_list - Frees allocated memory in a linked list
+ * free_listint - Frees allocated memory in a linked list
  *@head: Head of linkeed list
  *
  *Return: Void
  */
 
-void free_list(list_t *head)
+void free_listint(listint_t *head)
 {
-	list_t *temp;
+	listint_t *temp;
 
 	while(head != NULL)
 	{
 		temp = head;
 		head = head->next;
-		free(temp->str);
 		free(temp);
 	}
 }
