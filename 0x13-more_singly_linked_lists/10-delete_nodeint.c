@@ -4,7 +4,7 @@
 /**
  * delete_nodeint_at_index - Deletes node at a given index
  *@head: Pointer to head node
- *@idx: Index of list where new node should be added,it starts at 0.
+ *@index: Index of list where new node should be added,it starts at 0.
  *
  *Return: 1 at success or -1 at failure
  */
