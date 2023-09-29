@@ -3,9 +3,9 @@
 
 /**
  * clear_bit - Sets the value of a bit to 0
- *@:
- *
- *Return:
+ *@n: Pointer to number
+ *@index: Index begining from 0
+ *Return: 1 on success or -1 at failure
  */
 
 int clear_bit(unsigned long int *n, unsigned int index)
