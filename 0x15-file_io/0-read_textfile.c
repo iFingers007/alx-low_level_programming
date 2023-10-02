@@ -9,8 +9,7 @@
 
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	ssize_t chars_w;
-	ssize_t chars_r;
+	ssize_t chars_r,chars_w;
 	int fd;
 	char *buf;
 
@@ -22,21 +21,23 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		dprintf(2, "Fd Error:");
 		return (0);
 	}
-	buf = malloc(sizeof(char *) * letters);
+	buf = malloc(sizeof(char) * (letters + 1));
 	if (buf == NULL)
 	{
 		dprintf(2, "Malloc Error:");
 		return (0);
 	}
 	chars_r = read(fd, buf, letters);
-	if ((size_t)chars_r < letters)
+	if (chars_r == -1)
 	{
 		dprintf(2, "Read Error:");
 		free(buf);
+		close(fd);
 		return (0);
 	}
-	chars_w = write(STDOUT_FILENO, buf, letters);
-	if ((size_t)chars_w < letters)
+	buf[chars_r] = '\0';
+	chars_w = write(STDOUT_FILENO, buf, chars_r);
+	if (chars_w != chars_r)
 	{
 		dprintf(2, "Write Error:");
 		free(buf);
@@ -45,5 +46,4 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	free(buf);
 	close(fd);
 	return (chars_w);
-
 }
