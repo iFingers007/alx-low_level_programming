@@ -22,7 +22,7 @@ size_t _strlen(char *s)
 /**
  *create_file - A function that creates a file
  *@filename: name of the file to create
- *@text_context: String to wirte to file
+ *@text_content: String to wirte to file
  *Return: 1 on success or -1 on failure
  */
 
