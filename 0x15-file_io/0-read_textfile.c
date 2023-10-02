@@ -36,8 +36,8 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		return (0);
 	}
 	buf[chars_r] = '\0';
-	chars_w = write(STDOUT_FILENO, buf, chars_r);
-	if (chars_w != chars_r)
+	chars_w = write(STDOUT_FILENO, buf, chars_r + 1);
+	if (chars_w < chars_r)
 	{
 		dprintf(2, "Write Error:");
 		free(buf);
@@ -46,5 +46,5 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	}
 	free(buf);
 	close(fd);
-	return (chars_w);
+	return (chars_r);
 }
