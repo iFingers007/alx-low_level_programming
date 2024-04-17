@@ -9,7 +9,7 @@ void hash_table_print(const hash_table_t *ht)
 {
 	ul i;
 	hash_node_t *node;
-	int first;
+	int first = 0;
 
 	if (ht == NULL)
 		return;
@@ -22,7 +22,7 @@ void hash_table_print(const hash_table_t *ht)
 			if (!first)
 				printf(", ");
 			printf("'%s': '%s'", node->key, node->value);
-			first = 0;
+			first = 1;
 			node = node->next;
 		}
 	}
